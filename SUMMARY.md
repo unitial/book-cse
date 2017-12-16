@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
-* [Congestion Control](chapter1.md)
-* [Paxos](chapter-24-paxos.md)
+1-[Introduction](README.md)
+2-[Congestion Control](chapter1.md)
+    1-[Paxos](chapter-24-paxos.md)
 
