@@ -1,0 +1,16 @@
+{
+    "bookname": "CSE",
+    "description": "CSE",
+    "author": "Yubin Xia",
+    "keywords": [
+        "cse",
+        "SJTU"
+    ],
+
+    "homepage": "",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": ""
+    }
+}
