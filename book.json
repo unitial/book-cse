@@ -7,10 +7,10 @@
         "SJTU"
     ],
 
-    "homepage": "",
+    "homepage": "https://unitial.gitbooks.io/cse",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/unitial/book-cse.git"
     }
 }
