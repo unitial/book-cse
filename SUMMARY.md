@@ -11,6 +11,12 @@
   * [4 OS Kernel](3-Modularity/4-OS Kernel.md)
   * [5 Bounded Buffer](3-Modularity/5-Bounded Buffer.md)
   * [6 Lock](3-Modularity/6-Lock.md)
+- 4 Performance
+  * [1 Performance](4-Performance/1-Performance.md)
+- 5 Network
+  * [1 Network Introduction](5-Network/1-Network Introduction.md)
+- 6 Fault Tolerant
+  * [1 Fault Tolerant](6-Fault Tolerant/1-Fault Tolerant.md)
 - 7 Transaction
   * [1 Logging](7-Transaction/1-Logging.md)
   * [2 Isolation](7-Transaction/2-Isolation.md)

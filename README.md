@@ -1,3 +1,3 @@
-# My Awesome Book
+# 关于本书
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+这里是上海交通大学软件学院“计算机系统工程”的课程讲义整理，由学生和老师共同完成。上线时间为2017年12月20日，目前仍处于不断添加内容阶段，尚且需要完善。若读者对某些段落有疑问，可直接在右侧点击"+"号提交问题或引发讨论。
