@@ -2,7 +2,7 @@
 
 Logging是为了保证操作的原子性。一个场景是：假设一个操作可以分为若干个步骤，若在执行到某个步骤时发生crash，能够保证恢复到该操作执行之前或者之后。
 
-**三种存储介质：Log、Cell、Cache**
+### 三种存储介质：Log、Cell、Cache
 
 可以使用Log-based storage，即磁盘仅仅存储Log，那么read/write也都基于Log。优点在于简单，且write和recover很快；缺点在于read很慢，因为要读取大量Log。
 
@@ -10,7 +10,7 @@ Logging是为了保证操作的原子性。一个场景是：假设一个操作�
 
 为了提高write性能，引入基于内存的cache。Write时先写Log，再写cache；Read时则只读cache，miss则读Cell；Recover时需要读两遍Log，一遍从后往前做undo，一遍从前往后做redo。这是因为Cell的写入有可能被延后了，所以需要做redo。
 
-**Checkpoint**
+### Checkpoint
 
 为了提高recover的性能，引入checkpoint。Checkpoint是指将某个Transaction之前的所有操作都写入cell，这样之前的Log就可以忽略（truncate）了。为此需要在Log中写入一个checkpoint记录，当第一遍从后往前扫描Log的时候，找到checkpoint就可以停止了，再从checkpoint开始从前往后扫描Log。优点是log变小了，所以recover变快了；缺点在于checkpoint时系统会暂停接收新的transaction，会导致短暂的停顿。
 
@@ -18,11 +18,11 @@ Logging是为了保证操作的原子性。一个场景是：假设一个操作�
 
 在上面这个步骤里，由于checkpoint和其他transaction是同时进行的，所以很可能flush到disk cell里的数据包含了T_k+1_的数据，这会不会导致checkpoint数据不一致？可能，但没有关系，因为这种情况等价于<1-k>已经刷到disk cell，然后被k+1覆盖。因为checkpoint的目的是为了删掉<1-k>的log record，无论何种情况，k写入的值一定已经在k+1的log record里，可以恢复。
 
-**其他**
+### 其他
 
 提一下rethink the sync，用external sync的思维来思考对外可见性对性能和容错的影响。
 
-反思Logging，发现引入cell后破坏了transaction的对外不可见性，这个问题正是isolation要解决的。
+Logging并不能解决before-or-after的问题，在引入cell后，破坏了transaction的对外不可见性，这个问题正是isolation要解决的。
 
 ----
 后续需要增加的内容：
